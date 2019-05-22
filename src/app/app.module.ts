@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from "./product.component";
 import { StarComponent } from 'src/shared/star.componenet';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 //import { IProductlist } from './productList.interface';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { StarComponent } from 'src/shared/star.componenet';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
