@@ -1,0 +1,30 @@
+
+    <!-- <body> -->
+            <!-- (keypress)='filterProduct()' -->
+            <div>Filter By <input type="text" [(ngModel)]='filtertext' (input)='filterProduct()'></div>
+            <div>Filtered By:{{filtertext}}</div>
+            <!-- 'filterProduct()' -->
+            <div id="p">Smart Testing</div>
+        <table *ngIf='filteredList && filteredList.length'>
+           <!--  <div>{{filteredList[0].prodName}}</div> -->
+           <tr> 
+            <th><button (click)='toggleImage()' >{{btnDisplay}}<!-- {{imgDisplay?'Hide':'Show'}} Image --></button></th>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Available</th>
+            <th>Price</th>
+            <th>5 Star Rating</th></tr>
+            <!-- *ngFor='let prod of filteredList' -->
+<!--             *ngIf={{prod.prodName.includes(filterText)}} -->
+            <tr *ngFor='let prod of filteredList' >
+                <!-- {{prod.prodImage}} -->
+            <td *ngIf='imgDisplay'>
+                <img src={{prod.prodImage}} alt={{prod.prodName}} width="50px" height="50 px"></td>
+            <td align="center">{{prod.prodName}}</td><td align="center">{{prod.prodCode}}</td>
+            <td align="center">{{prod.prodAvailable}}</td>
+            <td align="center">{{prod.prodPrice}}</td>
+            <td align="center"><pm-star></pm-star>></td>
+            <!-- {{prod.prodRating}} -->
+            </tr></table>
+
+    <!-- </body> -->
