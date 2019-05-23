@@ -4,26 +4,27 @@
             <div>Filter By <input type="text" [(ngModel)]='filtertext' (input)='filterProduct()'></div>
             <div>Filtered By:{{filtertext}}</div>
             <!-- 'filterProduct()' -->
-            <div id="p">Smart Testing</div>
-        <table *ngIf='filteredList && filteredList.length'>
+            <div id="p" class="fa-lg">Smart Testing</div>
+        <table *ngIf='filteredList && filteredList.length' class="fa-border">
            <!--  <div>{{filteredList[0].prodName}}</div> -->
-           <tr> 
-            <th><button (click)='toggleImage()' >{{btnDisplay}}<!-- {{imgDisplay?'Hide':'Show'}} Image --></button></th>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Available</th>
-            <th>Price</th>
-            <th>5 Star Rating</th></tr>
+           <tr class="fa-border"> 
+            <th class="fa-fw"><button (click)='toggleImage()'
+                class="fa-2x" >{{btnDisplay}}<!-- {{imgDisplay?'Hide':'Show'}} Image --></button></th>
+            <th class="fa-fw">Product</th>
+            <th class="fa-border">Code</th>
+            <th class="fa-border">Available</th>
+            <th class="fa-border">Price</th>
+            <th class="fa-border">5 Star Rating</th></tr>
             <!-- *ngFor='let prod of filteredList' -->
 <!--             *ngIf={{prod.prodName.includes(filterText)}} -->
-            <tr *ngFor='let prod of filteredList' >
+            <tr *ngFor='let prod of filteredList' class="fa-border">
                 <!-- {{prod.prodImage}} -->
             <td *ngIf='imgDisplay'>
                 <img src={{prod.prodImage}} alt={{prod.prodName}} width="50px" height="50 px"></td>
             <td align="center">{{prod.prodName}}</td><td align="center">{{prod.prodCode}}</td>
             <td align="center">{{prod.prodAvailable}}</td>
             <td align="center">{{prod.prodPrice}}</td>
-            <td align="center"><pm-star></pm-star>></td>
+            <td align="center"><pm-star></pm-star></td>
             <!-- {{prod.prodRating}} -->
             </tr></table>
 

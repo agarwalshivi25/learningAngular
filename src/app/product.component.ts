@@ -39,33 +39,24 @@ export class ProductComponent  implements OnInit{
         console.log(this.filtertext);
         this.filterCounter=0;
         this.filteredList=[];
+        if (this.filtertext==''){
+            this.filteredList=this.productList;
+        }
+        else{
     for (let prod of this.productList){
-        if (prod.prodName.search(this.filtertext)==0){
+        if (prod.prodName.toLowerCase().search(this.filtertext.toLowerCase())==0){
             //document.getElementById("p").innerHTML=this.filterCounter;
             this.filteredList[this.filterCounter]=prod;
             console.log(this.filteredList[this.filterCounter].prodName);
             this.filterCounter++;
             
         }
+    }
 this.filterCounter=0;
     }
-
-   /*  for (let prod of this.filterProduct){
-        if (prod.prodName.includes(this.filtertext)){
-            this.filterProduct[this.filterCounter]=prod;
-            this.filterCounter++;
-        }
-
-    } */
-        /*  this.productList.forEach(element => {
     
-}); */
-//return true;
-    }
-     /* if(this.filteredList.length>0) {return true;}
-     else{ 
-return false;
-} */
+       }
+     
 
     
     toggleImage():void {
