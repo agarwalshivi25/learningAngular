@@ -14,7 +14,7 @@ export class ProductComponent  implements OnInit{
     filterCounter : number =0;
     imgDisplay: boolean =false;
     public productList: IProduct[] = [
-{"prodImage":"assets/Images/product1.jpeg","prodName":"Product1","prodCode":"01","prodAvailable":"01-MAY-2019","prodPrice":50,"prodRating":5}
+{"prodImage":"assets/Images/product1.jpeg","prodName":"Product1","prodCode":"01","prodAvailable":"01-MAY-2019","prodPrice":50,"prodRating":4}
 ,{"prodImage":"assets/Images/product2.jpeg","prodName":"check2","prodCode":"02","prodAvailable":"01-MAY-2019","prodPrice":50,"prodRating":5}
     ];
     public filteredList : IProduct[] =[];
@@ -36,7 +36,7 @@ export class ProductComponent  implements OnInit{
     filterProduct():void
     
     {
-        console.log(this.filtertext);
+        //console.log(this.filtertext);
         this.filterCounter=0;
         this.filteredList=[];
         if (this.filtertext==''){
@@ -47,7 +47,7 @@ export class ProductComponent  implements OnInit{
         if (prod.prodName.toLowerCase().search(this.filtertext.toLowerCase())==0){
             //document.getElementById("p").innerHTML=this.filterCounter;
             this.filteredList[this.filterCounter]=prod;
-            console.log(this.filteredList[this.filterCounter].prodName);
+          //  console.log(this.filteredList[this.filterCounter].prodName);
             this.filterCounter++;
             
         }

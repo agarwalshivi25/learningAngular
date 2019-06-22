@@ -1,0 +1,109 @@
+ 
+
+ <div class="p-3 mb-2 bg-primary text-white  border border-secondary">
+    <h4 class="display-4 text-center">{{title}}</h4>
+  </div>
+  <div class="row flex-x1-nowwrap">
+        <hr>
+  </div>
+
+       
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+      <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+        <form class="bd-search d-flex align-items-center">
+          <span class="algolia-autocomplete algolia-autocomplete-left" 
+          style="position: relative; display: inline-block; direction: ltr;">
+          <input type="search" class="form-control ds-input" id="search-input"
+           placeholder="Search..." aria-label="Search for..." 
+            autocomplete="off" data-docs-version="4.3" spellcheck="false" 
+            role="combobox" aria-autocomplete="list" aria-expanded="false" 
+            aria-owns="algolia-autocomplete-listbox-0" dir="auto" 
+            style="position: relative; vertical-align: top;">
+          <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;">border</pre><span class="ds-dropdown-menu ds-with-1" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; left: 0px; right: auto; display: none;">
+          <div class="ds-dataset-1"></div>
+          </span>
+          </span>
+          <button class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="true" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button>
+        </form>
+     <div class="row flex-x1-nowwrap">
+        <hr>
+      </div> 
+    
+    
+    <nav class="bd-links collapse show" id="bd-docs-nav" style="">
+      <div class="nav flex-column nav-pills" (click)="onNotesClick()">
+         <!--bd-toc-item bd-toc-link-->
+          <a class="nav-link" [class.active]="isNotes" href=""
+          >
+          <!-- style="background: purple" -->
+          <fa-icon slot="start" [icon]="['far','edit']"></fa-icon>
+             <span class="pl-2"></span>
+            
+          Notes
+          </a>
+          <div class="mx-auto" [hidden]="showCreateNote">
+          <ul class="nav flex-column">
+            <li>
+              <a href="#" class="badge badge-light">
+                Create Note
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+        <div class="nav flex-column nav-pills" (click)="onReminderClick()">
+          <a class="nav-link" href="" [class.active]="isReminder"
+            >
+            <fa-icon slot="start" [icon]="['far','bell']"></fa-icon>
+            <span class="pl-2"></span>
+            Reminders
+          </a>
+    
+         
+        </div>
+        <div class="nav flex-column nav-pills" (click)="onImportantClick()">
+          <!--bd-toc-item bd-toc-link-->
+           <a class="nav-link" href="" [class.active]="isImportant">
+           <fa-icon slot="start" [icon]="['far','star']"></fa-icon>
+              <span class="pl-2"></span>
+             
+           Important
+           </a>
+       </div>
+        <hr>
+        <div class="nav flex-column nav-pills" (click)="onLabelClick()">
+          <a class="nav-link" href="" [class.active]="isLabel">
+            <fa-icon slot="start" [icon]="['fas','plus']"></fa-icon>
+            <span class="pl-2"></span> Create New label
+          </a>
+    
+          
+        </div><hr><div class="nav flex-column nav-pills" (click)="onArchiveClick()">
+          <a class="nav-link" href="" [class.active]="isArchive">
+            <fa-icon slot="start" [icon]="['fas','archive']"></fa-icon>
+            <span class="pl-2"></span> Archive
+          </a>
+    
+        </div>
+        <div class="nav flex-column nav-pills" (click)="onDeleteClick()">
+          <a class="nav-link" href="" [class.active]="isDelete">
+            <fa-icon slot="start" [icon]="['fas','trash']"></fa-icon>
+            <span class="pl-2"></span> Deleted
+          </a>
+          </div>
+    </nav>
+         
+      
+    
+      </div>
+      <div>
+        <app-notes></app-notes>
+      </div>
+    </div>
+  </div>
+     <!-- <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+     -->
+     <app-create-note></app-create-note>
+     <app-reminder></app-reminder>

@@ -5,7 +5,7 @@
             <div>Filtered By:{{filtertext}}</div>
             <!-- 'filterProduct()' -->
             <div id="p" class="fa-lg">Smart Testing</div>
-        <table *ngIf='filteredList && filteredList.length' class="fa-border">
+        <table *ngIf='filteredList && filteredList.length' class="fa-table: before" >
            <!--  <div>{{filteredList[0].prodName}}</div> -->
            <tr class="fa-border"> 
             <th class="fa-fw"><button (click)='toggleImage()'
@@ -24,7 +24,7 @@
             <td align="center">{{prod.prodName}}</td><td align="center">{{prod.prodCode}}</td>
             <td align="center">{{prod.prodAvailable}}</td>
             <td align="center">{{prod.prodPrice}}</td>
-            <td align="center"><pm-star></pm-star></td>
+            <td align="center"><pm-star Rating={{prod.prodRating}}></pm-star></td>
             <!-- {{prod.prodRating}} -->
             </tr></table>
 
