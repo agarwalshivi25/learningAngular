@@ -10,7 +10,7 @@
        
   <div class="container-fluid">
     <div class="row flex-xl-nowrap">
-      <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+    <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
         <form class="bd-search d-flex align-items-center">
           <span class="algolia-autocomplete algolia-autocomplete-left" 
           style="position: relative; display: inline-block; direction: ltr;">
@@ -29,8 +29,6 @@
      <div class="row flex-x1-nowwrap">
         <hr>
       </div> 
-    
-    
     <nav class="bd-links collapse show" id="bd-docs-nav">
       <div class="nav flex-column nav-pills" (click)="onNotesClick()">
          <!--bd-toc-item bd-toc-link-->
@@ -45,7 +43,7 @@
          
   
       </div>
-      <div class="float-sm-right" [hidden]="showCreateNote" 
+      <div class="float-sm-right" *ngIf="showCreateNote" 
       (click)="onCreateNotesClick()">
       <ul class="nav flex-column">
         <li>
@@ -54,7 +52,7 @@
           </a> 
         </li>
       </ul>
-    </div><br/>
+    </div><br *ngIf="showCreateNote" /> 
      <div class="nav flex-column nav-pills" (click)="onReminderClick()">
           <a class="nav-link" [class.active]="isReminder"
             >
@@ -82,7 +80,17 @@
           </a>
     
           
-        </div><hr><div class="nav flex-column nav-pills" (click)="onArchiveClick()">
+        </div>
+        <div class="nav flex-column nav-pills" >
+            <a class="nav-link">
+              <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
+              <span class="pl-2"></span> Nodes_Label
+            </a>
+      
+            
+          </div>
+        
+        <hr><div class="nav flex-column nav-pills" (click)="onArchiveClick()">
           <a class="nav-link"  [class.active]="isArchive">
             <fa-icon slot="start" [icon]="['fas','archive']"></fa-icon>
             <span class="pl-2"></span> Archive
@@ -96,21 +104,21 @@
           </a>
           </div>
     </nav>
-         
-      
+    </div>
     
-      </div>
-      
          <div>
         <app-notes *ngIf="displayNotes"></app-notes>
         <app-reminder *ngIf="isReminder"></app-reminder>
-        
-       </div>
-       <div *ngIf="isCreateNote">
+        <app-important *ngIf="isImportant"></app-important>
+        </div>
+       <div *ngIf="isCreateNote" class="w-100">
           <app-create-note></app-create-note></div>
+
+          <div *ngIf="isLabel" class="w-100">
+              <app-create-label></app-create-label>
+            </div>
          </div>
-  </div>
-     <!-- <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-     -->
+        </div> 
+     
      
      

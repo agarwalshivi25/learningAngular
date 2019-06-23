@@ -1,0 +1,43 @@
+<div class="input-group mb-3 w-100">
+    <div class="input-group-prepend">
+     
+      <span class="input-group-text">
+          <i class="fa fa-close" style="font-size:24px"></i>
+      <!--   <fa-icon slot="start" [icon]="['far','window-close']"></fa-icon>
+       --></span>
+    </div>
+    <input type="text" 
+    placeholder="Create New Label"
+    class="form-control" aria-label="Amount (to the nearest dollar)">
+    <div class="input-group-append">
+      <span class="input-group-text">
+          <fa-icon slot="start" [icon]="['fas','check']"></fa-icon>
+
+      </span>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="float-left pr-3">
+          <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
+        </span> 
+        <input type="text" value="Notes_Label"
+            class="form-control" [disabled]="true">
+        <div class="float-right pl-3">
+          <fa-icon slot="end" [icon]="['fas','edit']"></fa-icon>
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="float-left pr-3">
+            <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
+          </span> 
+          <input type="text" value="Notes_Label2"
+              class="form-control" [disabled]="true">
+          <div class="float-right pl-3">
+            <fa-icon slot="end" [icon]="['fas','edit']"></fa-icon>
+          </div>
+        </li>
+    </ul>
+  </div>

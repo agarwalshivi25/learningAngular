@@ -12,7 +12,7 @@ export class TodoComponent {
   isNotes:boolean=true;
   isCreateNote:boolean=false;
   displayNotes:boolean=true;
-  showCreateNote:Boolean=false;
+  showCreateNote:Boolean=true;
   isReminder:boolean=false;
   isImportant:boolean=false;
   isLabel:boolean=false;
@@ -31,7 +31,7 @@ export class TodoComponent {
   onNotesClick(){
     this.isNotes=true;
   this.isCreateNote=false;
-  this.showCreateNote=false;
+  this.showCreateNote=true;
   this.displayNotes=true;
   this.isReminder=false;
   this.isImportant=false;
@@ -43,7 +43,7 @@ export class TodoComponent {
     this.isNotes=true;
     this.isCreateNote=true;
     this.displayNotes=false;
-  this.showCreateNote=false;
+  this.showCreateNote=true;
   this.isReminder=false;
   this.isImportant=false;
   this.isLabel=false;
@@ -55,7 +55,7 @@ export class TodoComponent {
   onReminderClick():void{
     this.isNotes=false;
   this.isCreateNote=false;
-  this.showCreateNote=true;
+  this.showCreateNote=false;
   this.displayNotes=false;
   this.isReminder=true;
   this.isImportant=false;
@@ -69,7 +69,7 @@ export class TodoComponent {
     this.isNotes=false;
   this.isCreateNote=false;
   this.displayNotes=false;
-  this.showCreateNote=true;
+  this.showCreateNote=false;
   this.isReminder=false;
   this.isImportant=true;
   this.isLabel=false;
@@ -80,7 +80,7 @@ export class TodoComponent {
     this.isNotes=false;
     this.displayNotes=false;
     this.isCreateNote=false;
-  this.showCreateNote=true;
+  this.showCreateNote=false;
   this.isReminder=false;
   this.isImportant=false;
   this.isLabel=true;
@@ -91,7 +91,7 @@ export class TodoComponent {
     this.isNotes=false;
     this.displayNotes=false;
     this.isCreateNote=false;
-  this.showCreateNote=true;
+  this.showCreateNote=false;
   this.isReminder=false;
   this.isImportant=false;
   this.isLabel=false;
@@ -102,7 +102,7 @@ export class TodoComponent {
     this.isNotes=false;
     this.displayNotes=false;
     this.isCreateNote=false;
-  this.showCreateNote=true;
+  this.showCreateNote=false;
   this.isReminder=false;
   this.isImportant=false;
   this.isLabel=false;
