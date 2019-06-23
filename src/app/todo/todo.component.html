@@ -31,10 +31,10 @@
       </div> 
     
     
-    <nav class="bd-links collapse show" id="bd-docs-nav" style="">
+    <nav class="bd-links collapse show" id="bd-docs-nav">
       <div class="nav flex-column nav-pills" (click)="onNotesClick()">
          <!--bd-toc-item bd-toc-link-->
-          <a class="nav-link" [class.active]="isNotes" href=""
+          <a class="nav-link" [class.active]="isNotes"
           >
           <!-- style="background: purple" -->
           <fa-icon slot="start" [icon]="['far','edit']"></fa-icon>
@@ -42,19 +42,21 @@
             
           Notes
           </a>
-          <div class="mx-auto" [hidden]="showCreateNote">
-          <ul class="nav flex-column">
-            <li>
-              <a href="#" class="badge badge-light">
-                Create Note
-              </a>
-            </li>
-          </ul>
-        </div>
+         
   
       </div>
-        <div class="nav flex-column nav-pills" (click)="onReminderClick()">
-          <a class="nav-link" href="" [class.active]="isReminder"
+      <div class="float-sm-right" [hidden]="showCreateNote" 
+      (click)="onCreateNotesClick()">
+      <ul class="nav flex-column">
+        <li>
+          <a class="badge badge-light">
+            Create Note
+          </a> 
+        </li>
+      </ul>
+    </div><br/>
+     <div class="nav flex-column nav-pills" (click)="onReminderClick()">
+          <a class="nav-link" [class.active]="isReminder"
             >
             <fa-icon slot="start" [icon]="['far','bell']"></fa-icon>
             <span class="pl-2"></span>
@@ -65,7 +67,7 @@
         </div>
         <div class="nav flex-column nav-pills" (click)="onImportantClick()">
           <!--bd-toc-item bd-toc-link-->
-           <a class="nav-link" href="" [class.active]="isImportant">
+           <a class="nav-link" [class.active]="isImportant">
            <fa-icon slot="start" [icon]="['far','star']"></fa-icon>
               <span class="pl-2"></span>
              
@@ -74,21 +76,21 @@
        </div>
         <hr>
         <div class="nav flex-column nav-pills" (click)="onLabelClick()">
-          <a class="nav-link" href="" [class.active]="isLabel">
+          <a class="nav-link" [class.active]="isLabel">
             <fa-icon slot="start" [icon]="['fas','plus']"></fa-icon>
             <span class="pl-2"></span> Create New label
           </a>
     
           
         </div><hr><div class="nav flex-column nav-pills" (click)="onArchiveClick()">
-          <a class="nav-link" href="" [class.active]="isArchive">
+          <a class="nav-link"  [class.active]="isArchive">
             <fa-icon slot="start" [icon]="['fas','archive']"></fa-icon>
             <span class="pl-2"></span> Archive
           </a>
     
         </div>
         <div class="nav flex-column nav-pills" (click)="onDeleteClick()">
-          <a class="nav-link" href="" [class.active]="isDelete">
+          <a class="nav-link"  [class.active]="isDelete">
             <fa-icon slot="start" [icon]="['fas','trash']"></fa-icon>
             <span class="pl-2"></span> Deleted
           </a>
@@ -98,12 +100,17 @@
       
     
       </div>
-      <div>
-        <app-notes></app-notes>
-      </div>
-    </div>
+      
+         <div>
+        <app-notes *ngIf="displayNotes"></app-notes>
+        <app-reminder *ngIf="isReminder"></app-reminder>
+        
+       </div>
+       <div *ngIf="isCreateNote">
+          <app-create-note></app-create-note></div>
+         </div>
   </div>
      <!-- <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
      -->
-     <app-create-note></app-create-note>
-     <app-reminder></app-reminder>
+     
+     

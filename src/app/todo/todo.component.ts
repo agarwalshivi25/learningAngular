@@ -10,92 +10,104 @@ import {faLine} from '@fortawesome/free-brands-svg-icons';
 export class TodoComponent {
   title:string;
   isNotes:boolean=true;
-  isCreateNote:boolean=true;
+  isCreateNote:boolean=false;
+  displayNotes:boolean=true;
   showCreateNote:Boolean=false;
   isReminder:boolean=false;
   isImportant:boolean=false;
   isLabel:boolean=false;
   isArchive:boolean=false;
-  isDelte:boolean=false;
+  isDelete:boolean=false;
  /*  faEdit=faEdit;
   faBell=faBell;
   faPlus=faPlus;
   faArchive=faArchive;
   faTrash=faTrash; */
-  constructor() { this.title="My ToDo Application";}
+  constructor() { this.title="My ToDo Application";
+  //console.log(this.displayNotes+" "+ this.isCreateNote);
+}
 
   
   onNotesClick(){
-    this.isNotes=!this.isNotes;
-  this.isCreateNote=!this.isCreateNote;
- // this.showCreateNote=!this.showCreateNote;
-  this.isReminder=!this.isReminder;
-  this.isImportant=!this.isImportant;
-  this.isLabel=!this.isLabel;
-  this.isArchive=!this.isArchive;
-  this.isDelte=!this.isDelte;
+    this.isNotes=true;
+  this.isCreateNote=false;
+  this.showCreateNote=false;
+  this.displayNotes=true;
+  this.isReminder=false;
+  this.isImportant=false;
+  this.isLabel=false;
+  this.isArchive=false;
+  this.isDelete=false;
   }
-/*   onCreateNotesClick(){
-    this.isNotes=!this.isNotes;
-  this.isCreateNote=!this.isCreateNote;
-  //this.showCreateNote=!this.showCreateNote;
-  this.isReminder=!this.isReminder;
-  this.isImportant=!this.isImportant;
-  this.isLabel=!this.isLabel;
-  this.isArchive=!this.isArchive;
-  this.isDelte=!this.isDelte;
-  } */
+   onCreateNotesClick():void{
+    this.isNotes=true;
+    this.isCreateNote=true;
+    this.displayNotes=false;
+  this.showCreateNote=false;
+  this.isReminder=false;
+  this.isImportant=false;
+  this.isLabel=false;
+  this.isArchive=false;
+  this.isDelete=false;
+  /* alert("Create Note "+ this.isCreateNote +" display notes "+this.displayNotes) ;
+  console.log("Create Note "+ this.isCreateNote +" display notes "+this.displayNotes);
+   */} 
   onReminderClick():void{
-    this.isNotes=!this.isNotes;
-  this.isCreateNote=!this.isCreateNote;
-  this.showCreateNote=!this.showCreateNote;
-  this.isReminder=!this.isReminder;
-  this.isImportant=!this.isImportant;
-  this.isLabel=!this.isLabel;
-  this.isArchive=!this.isArchive;
-  this.isDelte=!this.isDelte;
-  alert("call to hua ha"+this.isNotes+" "+this.isCreateNote);
-    console.log(this.isNotes ||this.isCreateNote || this.showCreateNote  );
+    this.isNotes=false;
+  this.isCreateNote=false;
+  this.showCreateNote=true;
+  this.displayNotes=false;
+  this.isReminder=true;
+  this.isImportant=false;
+  this.isLabel=false;
+  this.isArchive=false;
+  this.isDelete=false;
+  //alert("call to hua ha "+this.isReminder+" "+this.isCreateNote);
+    //console.log(this.isNotes ||this.isCreateNote || this.showCreateNote  );
   }
   onImportantClick(){
-    this.isNotes=!this.isNotes;
-  this.isCreateNote=!this.isCreateNote;
-  //this.showCreateNote=!this.showCreateNote;
-  this.isReminder=!this.isReminder;
-  this.isImportant=!this.isImportant;
-  this.isLabel=!this.isLabel;
-  this.isArchive=!this.isArchive;
-  this.isDelte=!this.isDelte;
+    this.isNotes=false;
+  this.isCreateNote=false;
+  this.displayNotes=false;
+  this.showCreateNote=true;
+  this.isReminder=false;
+  this.isImportant=true;
+  this.isLabel=false;
+  this.isArchive=false;
+  this.isDelete=false;
   }
   onLabelClick(){
-    this.isNotes=!this.isNotes;
-  this.isCreateNote=!this.isCreateNote;
-  //this.showCreateNote=!this.showCreateNote;
-  this.isReminder=!this.isReminder;
-  this.isImportant=!this.isImportant;
-  this.isLabel=!this.isLabel;
-  this.isArchive=!this.isArchive;
-  this.isDelte=!this.isDelte;
+    this.isNotes=false;
+    this.displayNotes=false;
+    this.isCreateNote=false;
+  this.showCreateNote=true;
+  this.isReminder=false;
+  this.isImportant=false;
+  this.isLabel=true;
+  this.isArchive=false;
+  this.isDelete=false;
   }
   onArchiveClick(){
-    this.isNotes=!this.isNotes;
-  this.isCreateNote=!this.isCreateNote;
-  //this.showCreateNote=!this.showCreateNote;
-  this.isReminder=!this.isReminder;
-  this.isImportant=!this.isImportant;
-  this.isLabel=!this.isLabel;
-  this.isArchive=!this.isArchive;
-  this.isDelte=!this.isDelte;
+    this.isNotes=false;
+    this.displayNotes=false;
+    this.isCreateNote=false;
+  this.showCreateNote=true;
+  this.isReminder=false;
+  this.isImportant=false;
+  this.isLabel=false;
+  this.isArchive=true;
+  this.isDelete=false;
   }
   onDeleteClick(){
-    this.isNotes=!this.isNotes;
-  this.isCreateNote=!this.isCreateNote;
-  //this.showCreateNote=!this.showCreateNote;
-  this.isReminder=!this.isReminder;
-  this.isImportant=!this.isImportant;
-  this.isLabel=!this.isLabel;
-  this.isArchive=!this.isArchive;
-  this.isDelte=!this.isDelte;
-  }
+    this.isNotes=false;
+    this.displayNotes=false;
+    this.isCreateNote=false;
+  this.showCreateNote=true;
+  this.isReminder=false;
+  this.isImportant=false;
+  this.isLabel=false;
+  this.isArchive=false;
+  this.isDelete=true;
+}
 
 }
