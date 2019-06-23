@@ -1,10 +1,12 @@
-<div class="card-columns">
-<div class="card">
+<div class="card-columns" *ngIf="Notes && Notes.length">
+<!--  <div class="card">
   <div class="card-header">
     Notes1 
     <span class="float-right">
       <fa-icon slot="start" [icon]="['fas','concierge-bell']" class="pr-1"></fa-icon>
-      <fa-icon slot="start" [icon]="[isFas?'fas':'far','star']" (click)="onFavClick()"></fa-icon>
+      <fa-icon slot="start" [icon]="[isFas?'fas':'far','star']" class="pr-1" (click)="onFavClick()"></fa-icon>
+      <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
+    
     </span>
   </div>
   <div class="card-body">
@@ -80,5 +82,36 @@
       <a href="#" class="btn btn-primary">Delete</a> 
      
     </div>
+  </div>  -->
+  <div class="card" *ngFor="let note of Notes">
+<app-note-panel>
+  <ng-container class="heading">{{note.NotesHeading}}</ng-container>
+  <ng-container class='icons'>
+      <fa-icon slot="start" [icon]="['fas','concierge-bell']" class="pr-1"></fa-icon>
+      <fa-icon slot="start" [icon]="[note.NotesImp==1?'fas':'far','star']" class="pr-1" (click)="onFavClick()"></fa-icon>
+      <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
+  </ng-container>
+  <ng-container class="specialnote">{{note.NotesSpecialNote}}</ng-container>
+  <ng-container class="body">{{note.NotesContent}}</ng-container>
+  <ng-container class="reminder" *ngFor="let rem of note.NotesReminder">
+      <small [class.text-muted]="rem.isExpired" 
+      [class.text-white]="!rem.isExpired" [class.bg-dark]="!rem.isExpired"
+      [class.border-dark]="!rem.isExpired"
+      class="pr-1 border rounded-pill"
+      [style.text-decoration]="rem.MarkDone?'line-through':''"
+      >
+          <span>
+            <fa-icon [icon]="['far','clock']"></fa-icon>
+          </span>{{rem.TimeStamp}}
+        </small> 
+  </ng-container>
+  <div class="card-footer" *ngIf="note.NotesLabel && note.NotesLabel.length" >
+      <ng-container class="footer" *ngFor="let lbl of note.NotesLabel">
+          <small class="text-muted pr-3" >
+              {{lbl}}</small>
+      </ng-container> 
   </div>
+  
+</app-note-panel>
+</div>
 </div>

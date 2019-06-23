@@ -18,11 +18,13 @@ import { CreateReminderComponent } from './create-reminder/create-reminder.compo
 import { PanelComponent } from './panel/panel.component';
 import { ImportantComponent } from './important/important.component';
 import { CreateLabelComponent } from './create-label/create-label.component'; 
+import {GetNotesService} from './get-notes.service';
+import { NotePanelComponent } from './note-panel/note-panel.component';
 //import { IProductlist } from './productList.interface';
 
 @NgModule({
   declarations: [
-    AppComponent,ProductComponent,StarComponent, TodoComponent, NotesComponent, ReminderComponent, CreateNoteComponent, CreateReminderComponent, PanelComponent, ImportantComponent, CreateLabelComponent
+    AppComponent,ProductComponent,StarComponent, TodoComponent, NotesComponent, ReminderComponent, CreateNoteComponent, CreateReminderComponent, PanelComponent, ImportantComponent, CreateLabelComponent, NotePanelComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,9 @@ import { CreateLabelComponent } from './create-label/create-label.component';
     AngularFontAwesomeModule ,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    GetNotesService
+  ],
   bootstrap: [TodoComponent]
 })
 export class AppModule {

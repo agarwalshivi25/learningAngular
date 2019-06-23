@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetNotesService } from '../get-notes.service';
 
 @Component({
   selector: 'app-notes',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
   isFas:boolean=false;
-  constructor() { }
+  Notes;
+  constructor(service:GetNotesService) { 
+    this.Notes=service.getNotes();
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,35 @@
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">
+      <ng-content select=".heading"></ng-content>
+    </div>
+    <div class="panel-body">
+      <ng-content select=".body"></ng-content>
+    </div>
+  </div> -->
+
+  
+
+  
+      <div class="card-header">
+          <ng-content select=".heading"></ng-content>
+        <span class="float-right">
+         <!--  <fa-icon slot="start" [icon]="['fas','concierge-bell']" class="pr-1"></fa-icon>
+          <fa-icon slot="start" [icon]="[isFas?'fas':'far','star']" class="pr-1" (click)="onFavClick()"></fa-icon>
+          <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon> -->
+          <ng-content select=".icons"></ng-content>
+        </span>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><ng-content select=".specialnote"></ng-content></h5>
+        <p class="card-text">
+            <ng-content select=".body"></ng-content>
+        </p>
+        <a href="#" class="btn btn-primary">Delete</a>   
+        <br/>
+        <ng-content class="reminder"></ng-content>
+      </div>
+      
+          <ng-content class="footer"></ng-content> 
+      
+      
+   
