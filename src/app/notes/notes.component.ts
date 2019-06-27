@@ -7,7 +7,7 @@ import { GetNotesService } from '../get-notes.service';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
- // isFas:boolean=false;
+ //qqqqqq isFas:boolean=false;
   Notes;
   constructor(service:GetNotesService) { 
     this.Notes=service.getNotes();
