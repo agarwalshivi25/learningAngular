@@ -20,6 +20,7 @@ import { ImportantComponent } from './important/important.component';
 import { CreateLabelComponent } from './create-label/create-label.component'; 
 import {GetNotesService} from './get-notes.service';
 import { NotePanelComponent } from './note-panel/note-panel.component';
+import { GetLabelsService } from './get-labels.service';
 //import { IProductlist } from './productList.interface';
 
 @NgModule({
@@ -34,7 +35,7 @@ import { NotePanelComponent } from './note-panel/note-panel.component';
     FontAwesomeModule
   ],
   providers: [
-    GetNotesService
+    GetNotesService,GetLabelsService
   ],
   bootstrap: [TodoComponent]
 })

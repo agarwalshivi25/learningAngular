@@ -81,10 +81,10 @@
     
           
         </div>
-        <div class="nav flex-column nav-pills" >
-            <a class="nav-link">
+        <div class="nav flex-column nav-pills" *ngIf="labels && labels.length">
+            <a class="nav-link" *ngFor="let lbl of labels">
               <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
-              <span class="pl-2"></span> Nodes_Label
+              <span class="pl-2"></span> {{lbl}}
             </a>
       
             

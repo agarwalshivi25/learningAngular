@@ -88,7 +88,8 @@
   <ng-container class="heading">{{note.NotesHeading}}</ng-container>
   <ng-container class='icons'>
       <fa-icon slot="start" [icon]="['fas','concierge-bell']" class="pr-1"></fa-icon>
-      <fa-icon slot="start" [icon]="[note.NotesImp==1?'fas':'far','star']" class="pr-1" (click)="onFavClick()"></fa-icon>
+      <fa-icon slot="start" [icon]="[note.NotesImp?'fas':'far','star']" 
+      class="pr-1" (click)="onFavClick(note.Notesid,note.NotesImp)"></fa-icon>
       <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
   </ng-container>
   <ng-container class="specialnote">{{note.NotesSpecialNote}}</ng-container>

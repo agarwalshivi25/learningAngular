@@ -6,30 +6,31 @@
       <!--   <fa-icon slot="start" [icon]="['far','window-close']"></fa-icon>
        --></span>
     </div>
-    <input type="text" 
+    <input #lblval type="text" 
     placeholder="Create New Label"
     class="form-control" aria-label="Amount (to the nearest dollar)">
     <div class="input-group-append">
       <span class="input-group-text">
-          <fa-icon slot="start" [icon]="['fas','check']"></fa-icon>
+          <fa-icon slot="start" [icon]="['fas','check']" (click)="onlbladd(lblval.value)"></fa-icon>
 
       </span>
     </div>
   </div>
   <hr>
-  <div>
+  <div *ngIf="labels && labels.length">
     <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let lbl of labels">
         <span class="float-left pr-3">
           <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
         </span> 
-        <input type="text" value="Notes_Label"
+        <input type="text" [value]="lbl"
             class="form-control" [disabled]="true">
         <div class="float-right pl-3">
           <fa-icon slot="end" [icon]="['fas','edit']"></fa-icon>
         </div>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+     <!--  <li class="list-group-item d-flex justify-content-between align-items-center">
           <span class="float-left pr-3">
             <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
           </span> 
@@ -38,6 +39,6 @@
           <div class="float-right pl-3">
             <fa-icon slot="end" [icon]="['fas','edit']"></fa-icon>
           </div>
-        </li>
+        </li> -->
     </ul>
   </div>

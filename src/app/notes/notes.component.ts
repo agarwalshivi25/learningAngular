@@ -7,7 +7,7 @@ import { GetNotesService } from '../get-notes.service';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-  isFas:boolean=false;
+ // isFas:boolean=false;
   Notes;
   constructor(service:GetNotesService) { 
     this.Notes=service.getNotes();
@@ -15,8 +15,12 @@ export class NotesComponent implements OnInit {
 
   ngOnInit() {
   }
-  onFavClick()
+  onFavClick(noteid,fav)
 {
-this.isFas=!this.isFas;
-}
+//this.isFas=!this.isFas;
+//console.log(noteid + " " + fav);
+this.Notes[noteid].NotesImp=!this.Notes[noteid].NotesImp;
+/* console.log(this.Notes[noteid].Notesid + " "+ 
+this.Notes[noteid].NotesImp);
+ */}
 }

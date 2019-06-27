@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {faEdit,faBell} from '@fortawesome/free-regular-svg-icons';
 import {faPlus,faArchive,faTrash} from '@fortawesome/free-solid-svg-icons';
 import {faLine} from '@fortawesome/free-brands-svg-icons';
+import { GetLabelsService } from '../get-labels.service';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -18,12 +19,15 @@ export class TodoComponent {
   isLabel:boolean=false;
   isArchive:boolean=false;
   isDelete:boolean=false;
+  labels:string[];
  /*  faEdit=faEdit;
   faBell=faBell;
   faPlus=faPlus;
   faArchive=faArchive;
   faTrash=faTrash; */
-  constructor() { this.title="My ToDo Application";
+  constructor(service:GetLabelsService) {
+     this.title="My ToDo Application";
+  this.labels=service.getlabels();
   //console.log(this.displayNotes+" "+ this.isCreateNote);
 }
 
