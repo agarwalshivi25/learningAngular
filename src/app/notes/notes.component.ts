@@ -9,7 +9,7 @@ import { GetNotesService } from '../get-notes.service';
 export class NotesComponent implements OnInit {
  //qqqqqq isFas:boolean=false;
   Notes;
-  constructor(service:GetNotesService) { 
+  constructor(private service:GetNotesService) { 
     this.Notes=service.getNotes();
   }
 
@@ -23,4 +23,8 @@ this.Notes[noteid].NotesImp=!this.Notes[noteid].NotesImp;
 /* console.log(this.Notes[noteid].Notesid + " "+ 
 this.Notes[noteid].NotesImp);
  */}
+ onNoteDel(index){
+  //console.log(index); 
+  this.service.delNotes(index);
+ }
 }

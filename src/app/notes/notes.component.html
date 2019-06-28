@@ -83,17 +83,23 @@
      
     </div>
   </div>  -->
-  <div class="card" *ngFor="let note of Notes">
+  <div class="card" *ngFor="let note of Notes;let i=index">
 <app-note-panel>
   <ng-container class="heading">{{note.NotesHeading}}</ng-container>
   <ng-container class='icons'>
       <fa-icon slot="start" [icon]="['fas','concierge-bell']" class="pr-1"></fa-icon>
       <fa-icon slot="start" [icon]="[note.NotesImp?'fas':'far','star']" 
-      class="pr-1" (click)="onFavClick(note.Notesid,note.NotesImp)"></fa-icon>
+      class="pr-1" (click)="onFavClick(i,note.NotesImp)"></fa-icon>
       <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
   </ng-container>
   <ng-container class="specialnote">{{note.NotesSpecialNote}}</ng-container>
   <ng-container class="body">{{note.NotesContent}}</ng-container>
+
+  <ng-container class="delete">
+    <a class="btn btn-primary" (click)="onNoteDel(i)">Delete</a>
+    <br/></ng-container>
+  
+
   <ng-container class="reminder" *ngFor="let rem of note.NotesReminder">
       <small [class.text-muted]="rem.isExpired" 
       [class.text-white]="!rem.isExpired" [class.bg-dark]="!rem.isExpired"
@@ -106,12 +112,11 @@
           </span>{{rem.TimeStamp}}
         </small> 
   </ng-container>
-  <div class="card-footer" *ngIf="note.NotesLabel && note.NotesLabel.length" >
-      <ng-container class="footer" *ngFor="let lbl of note.NotesLabel">
-          <small class="text-muted pr-3" >
-              {{lbl}}</small>
-      </ng-container> 
-  </div>
+  <ng-container class="footer" *ngIf="note.NotesLabel && note.NotesLabel.length">
+       <div class="card-footer"> 
+    <small class="text-muted pr-3" *ngFor="let lbl of note.NotesLabel">{{lbl}}</small>
+      </div></ng-container> 
+  
   
 </app-note-panel>
 </div>

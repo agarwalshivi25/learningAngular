@@ -4,16 +4,31 @@ import { Injectable } from '@angular/core';
   //providedIn: 'root'
 } */)
 export class GetLabelsService {
-labels:string[];
+labels:{}[];
   constructor() { 
-    this.labels=['Notes_Label','Notes_Label2','Notes_Label2'];
+    this.labels=[{'lblId':'1','lblName':'Notes_Label','isLblDisabled':true},
+    {'lblId':'2','lblName':'Notes_Label1','isLblDisabled':true},
+    {'lblId':'3','lblName':'Notes_Label2','isLblDisabled':true}];
   }
-  getlabels():string[]{
+  getlabels():any{
     return this.labels;
   }
   addlabels(label:string){
+   // this.labels.unshift
     //console.log(label);
-    this.labels.splice(0,0,label);
+    
+    //this.labels.push({'lblId':this.labels.length+1,'lblName':label,'isLblDisabled':true});
+    this.labels.splice(0,0,{'lblId':this.labels.length+1,'lblName':label,'isLblDisabled':true})
     
   }
+  updatelabels(lblId,label:string){
+    // this.labels.unshift
+     this.labels[lblId].lblName=label;
+     console.log(this.labels[lblId]);
+    // this.labels.find()
+//this.labels[lblId].lblName;
+    // this.labels.push({'lblId':this.labels.length+1,'lblName':label,'isLblDisabled':true});
+     
+     
+   }
 }

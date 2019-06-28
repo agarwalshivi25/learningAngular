@@ -6,12 +6,12 @@
       <!--   <fa-icon slot="start" [icon]="['far','window-close']"></fa-icon>
        --></span>
     </div>
-    <input #lblval type="text" 
+    <input #lblval type="text" [(ngModel)]="newlbl"
     placeholder="Create New Label"
     class="form-control" aria-label="Amount (to the nearest dollar)">
     <div class="input-group-append">
       <span class="input-group-text">
-          <fa-icon slot="start" [icon]="['fas','check']" (click)="onlbladd(lblval.value)"></fa-icon>
+          <fa-icon slot="start" [icon]="['fas','check']" (click)="onlbladd(newlbl)"></fa-icon>
 
       </span>
     </div>
@@ -20,14 +20,20 @@
   <div *ngIf="labels && labels.length">
     <ul class="list-group">
       <li class="list-group-item d-flex justify-content-between align-items-center"
-      *ngFor="let lbl of labels">
+      *ngFor="let lbl of labels; let i=index">
         <span class="float-left pr-3">
           <fa-icon slot="start" [icon]="['fas','tag']"></fa-icon>
         </span> 
-        <input type="text" [value]="lbl"
-            class="form-control" [disabled]="true">
+        <input #lblupd type="text" [value]="lbl.lblName"
+            class="form-control" [disabled]="lbl.isLblDisabled">
         <div class="float-right pl-3">
-          <fa-icon slot="end" [icon]="['fas','edit']"></fa-icon>
+          <fa-icon slot="end" [icon]="['fas','edit']" 
+          (click)="onlblEdit(i)" *ngIf="lbl.isLblDisabled"></fa-icon>
+          <fa-icon slot="end" [icon]="['fas','check']" (click)="onlblupdate(i,lblupd.value)"
+          *ngIf="!lbl.isLblDisabled">
+
+          </fa-icon>
+
         </div>
       </li>
      <!--  <li class="list-group-item d-flex justify-content-between align-items-center">

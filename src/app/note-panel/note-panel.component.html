@@ -12,12 +12,18 @@
         <p class="card-text">
             <ng-content select=".body"></ng-content>
         </p>
-        <a href="#" class="btn btn-primary">Delete</a>   
-        <br/>
-        <ng-content class="reminder"></ng-content>
+        <ng-content select=".delete"></ng-content>
+          
+        
+        <ng-content select=".reminder"></ng-content>
       </div>
       
-          <ng-content class="footer"></ng-content> 
+          
+            
+              
+                <ng-content select=".footer"></ng-content>
+            
+           
       
       
    
